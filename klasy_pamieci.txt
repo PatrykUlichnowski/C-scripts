@@ -1,0 +1,53 @@
+1. register - zmienna rejestrowa (alokacja w rejestrach procesora)
+- zmienna nie posiada rejestru (nie mozna w stosunku do tej zmiennej uzyc operatora uzyskania adresu czyli &)
+- wartosc bez inicjalizacji jest przypadkowa
+
+2. auto - zmienna automatyczna (alokacja na stosie)
+- zmienna alokowana na stosie i jest tymczasowa (istnieje tylko w czasie aktywnosci bloku kodu z jej definicja)
+- wartosc bez inicjalizacji jest przypadkowa
+
+3. static - zmienna statyczna (alokacja w segmencie danych)
+- obejmuje zmiennne globalne oraz lokalne
+- inicjalizacja zmiennej odbywa sie jednorazowo po zaladowaniu programu do pamieci przy uruchamianiu
+- zmienna zachowuje swoja ostatnia wartosc nawet gdy wielokrotnie przekazanie zostanie sterowanie do bloku z jej definicja
+przyklad 
+int counter(){
+    static int i = 0;
+    i++;
+    return i; (zwroci 1, 2, 3, 4, 5 bo zmienna istnieje poza funkcja counter)
+}
+- gdyby bylo {
+    static int i;
+    i = 0;
+    i++;
+    return i; (zwraca 1, 1, 1, 1)
+}
+{
+    static int i = 0;
+    return i++ (bedzie zwracac od 0 do n)
+    return ++i (bedzie zwracad od 1 do n)
+}
+f(){
+    static int y; //gdyby tutaj byl zadeklarowany x, to i tak w ifach bylby ten zadeklarowany w ifie
+    if (){
+        static int x = 5;
+        //tu y jest dostepny, a x jest dostapny jako 5
+    }
+    else {
+        static int x = 8;
+        //tu y jest dostepny, a x jest dostapny jako 8
+    }
+    //tu x jest niedostepny
+}
+
+4. globalna - zmienna dostepna w obrebie calego programu (alokacja w segmencie danych)
+
+5. dynamiczna - zmienna alokowana dynamicznie (czesciej tablica, obszar pamieci)
+- zmienne dnamiczne tworzone sa jawnie poprzez wywolanie funkcji/operatora dymanicznego przydzialu pamieci (malloc/new, realloc)
+- alokacja pamieci jest w specjalnym obszarze - na stercie
+- zmienne dynamiczne w jezykach niskopoziomowych musza byc jawnie dealokowane porzez wywolanie funkcji/operatora free/delete. w przeciwnym wypadku dochodzi do tzw wycieku pamieci
+
+6. extern - zmienna zewnetrzna, raczej deklaracja identyfikatora zmiennej niz specyfikacja klasy pamieci
+- zmienna alokowana jest w semencie danych (jej deinicja moze byc w innym pliku)
+- inicjalizacja zmiennej odbywa sie jednorazowo po zaladowaniu programu do pamieci przy uruchamianiu
+- jesli zmienna nie jest inicjalizowana jej wartosc poczatkowa jest 0;
