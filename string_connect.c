@@ -92,5 +92,7 @@ int main()
     w2 = string_connect_malloc(k, a);
     printf("%s\n", w1);
     printf("%s\n", w2);
+    free(w1); // we use free to release the momery that was assigned to w1 by malloc
+    free(w2);
     return 0;
 }

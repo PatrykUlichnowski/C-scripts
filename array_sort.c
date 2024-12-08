@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 void swap(float *x, float *y)
 {
     float temp = *y;
@@ -8,7 +7,7 @@ void swap(float *x, float *y)
     *x = temp;
 }
 
-int index_of_min_val_in_array(float *t, int size, int start) 
+int index_of_min_val_in_array(float *t, int size, int start)
 {
     int min_val = start;
     for (int i = start + 1; i < size; i++)
@@ -30,10 +29,10 @@ void sort_array(float *tab, int size)
         {
             swap(&tab[minval], &tab[i]);
         }
-    } 
+    }
 }
 
-int main() 
+int main()
 {
     float tab1[5] = {2.5, 7.4, 11.1, 0.54, 0.1};
     // float lowest = min_val_in_array(tab1, (sizeof(tab1)/sizeof(tab1[0])));
