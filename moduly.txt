@@ -1,0 +1,10 @@
+dyrektywy preprocesora
+dyrektywy rozpoczynaja sie od znaku #
+dyrektywy analizowane sa i interpretowane przed wlasicwa kompilacja
+dyrektywa konczy sie na ogolo znakiem nowej linii
+
+dyrektywy 
+#include
+#define, #undef
+#if, #else, #elif, #endif
+#pragma

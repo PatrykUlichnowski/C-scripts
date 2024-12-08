@@ -1,48 +1,9 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
-
-enum Colour
-{
-    karo = 1,
-    trefl = 2,
-    kier = 3,
-    pik = 4
-};
-enum Figure
-{
-    walet = 11,
-    dama = 12,
-    krol = 13,
-    as = 14
-};
-struct Card
-{
-    enum Colour kolor;
-    enum Figure figura;
-};
-static bool color_match(struct Card cards_tab[5])
-{
-    for (int i = 1; i < 5; i++)
-    {
-        if (cards_tab[i].kolor != cards_tab[0].kolor)
-            return false;
-    }
-    return true;
-}
-static bool pair_match(struct Card cards[5])
-{
-    for (int i = 0; i < 5; i++)
-    {
-        for (int j = 1 + i; j < 5; j++)
-        {
-            if (cards[i].figura == cards[j].figura)
-                return true;
-        }
-    }
-
-    return false;
-}
+#include "cards.h"
+#include "color_match.h"
+#include "pair_match.h"
 
 int main()
 {

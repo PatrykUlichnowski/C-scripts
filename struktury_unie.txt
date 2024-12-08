@@ -1,0 +1,54 @@
+unia jest typem zmiennej przechowujacej wartosc interpretowana zgodnie z jendmy z typow skladowych wyszczegolnionych w definicji. unia umozliwia wybor wariantu typu danych przechowywanych w okoreslonym obszarze pamieci
+
+struct PUNKT{
+    float x;
+    float y;
+};
+struct DANE_OSOBOWE{
+    char nazwisko[24];
+    char imie[12];
+    enum {M, K} plec'
+    int numer_karty;
+} p1, p2, p3; //definicja struktow 
+struct PUNKT p4; //trzeba powtorzyc struct (w C, w Cpp już nie)
+struct {
+    char nazwisko[24]
+    ....
+} dane_pracownika // struktura anonimowa
+
+struct PUNKT{
+    ...
+} *punkt_ptr;
+
+dostep za posrednictwem zmiennej
+p1.x
+p2.y
+p1.y
+dostep za posrednictwem wskaznika
+punkt_ptr -> x;
+punkt_ptr -> y;
+(*punkt_ptr).x;
+
+union ID {
+    char pseudonim[6];
+    usigned long numer;
+};
+union ID agent = {"Bolek"};
+union ID agent007 = {7};
+Unia rozni sie od structa tym, ze w przypadku uni mamy albo to albo to (w tym przypadku albo numer albo pseudonim), w przypadku structa mamy obie wartosci.
+
+typ wyliczeniowy
+enum KOLOR {zoltym, bialy, czerwony};
+enum LOGICZNY {FALSZ, PRAWDA};
+enum {TAK, NIE} odpowiedz;
+enum miesiace {styczen = 1,}
+
+typedef
+deklaracja typedef sluzy dow tworzenia alternatywnych nazw (synonimow) dla zdefiniowanych wczesniej lub definiowanych typow danych
+struct DESC{
+    ...
+};
+typedef struct DESC DESC; //zastepuje "struct DESC" samym "DESC"
+DESC d1, d2;
+
+typedef int (*typ_wskaz_fun)(int, int);
